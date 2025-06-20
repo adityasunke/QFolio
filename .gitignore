@@ -3,3 +3,4 @@ configure_ibm_account.py
 config/
 *.env
 .qiskit/
+.venv
