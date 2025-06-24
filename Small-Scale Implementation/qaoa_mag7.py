@@ -57,16 +57,16 @@ class Magnificent_7:
         # Calculate end date by adding the specified number of days
         # We add extra days to account for weekends and holidays
         # Typically need about 1.4x calendar days to get the desired trading days
-        calendar_days_needed = int(days * 1.4) + 7  # Add buffer for weekends/holidays
+        calendar_days_needed = int(days * 1.4) + 7  # Add weekends/holidays
         end_date = start_date + timedelta(days=calendar_days_needed)
-        end_date_str = end_date.strftime('%Y-%m-%d')
+        end_date = end_date.strftime('%Y-%m-%d')
         
-        print(f"Downloading data from {start} to {end_date_str} (to get ~{days} trading days)")
+        print(f"Downloading data from {start} to {end_date} (to get ~{days} trading days)")
         
         data = yf.download(
             tickers=self.tickers, 
             start=start,
-            end=end_date_str, 
+            end=end_date, 
             interval=interval,
             auto_adjust=True,
             rounding=True,
@@ -81,30 +81,22 @@ class Magnificent_7:
         if len(data) > days:
             data = data.tail(days)  # Take the most recent 'days' trading days
         
-        # Check for missing data
-        if data.isnull().any().any():
-            print("Warning: Some data is missing. Forward filling...")
-            data = data.fillna(method='ffill').dropna()
-        
         if data.empty:
             raise ValueError("No data available for the specified period")
         
         actual_days = len(data)
         print(f"Successfully downloaded {actual_days} trading days of data")
         
-        if actual_days < days:
-            print(f"Warning: Only {actual_days} trading days available (requested {days})")
-            
         return data
             
     def compute_returns(self):
         """Compute daily returns matrix"""
-        returns_df = self.data.pct_change().dropna()
+        returns = self.data.pct_change().dropna()
         
-        if returns_df.empty:
+        if returns.empty:
             raise ValueError("Insufficient data to compute returns")
             
-        returns_matrix = returns_df.to_numpy()
+        returns_matrix = returns.to_numpy()
         return returns_matrix
     
     def compute_mu(self, returns_matrix):
@@ -132,9 +124,7 @@ class Magnificent_7:
         
         # Diagonal terms: individual asset risk and return, plus penalty
         for i in range(self.n):
-            self.qubo_matrix[i, i] = (
-                risk_aversion * sigma[i, i] - mu[i, 0] + penalty_strength * (1 - 2 * B)
-            )
+            self.qubo_matrix[i, i] = (risk_aversion * sigma[i, i] - mu[i, 0] + penalty_strength * (1 - 2 * B))
         
         # Off-diagonal terms: covariance and penalty
         for i in range(self.n):
@@ -183,7 +173,7 @@ class Magnificent_7:
 
     def quantum_optimizer(self, program, max_iterations=200):
         """Run QAOA optimization"""
-        try:    
+        try:
             # Set up QAOA with more iterations using SamplerV2
             sampler = Sampler()
             optimizer = COBYLA(maxiter=max_iterations)
@@ -199,7 +189,7 @@ class Magnificent_7:
     def analyze_solution(self, result):
         """Analyze and display the optimization results"""
         if result.x is None:
-            print("No solution found!")
+            print("No solution found")
             return None, None, None
         
         x_opt = result.x
@@ -240,9 +230,7 @@ class Magnificent_7:
         print(f"Risk (std dev): {np.sqrt(np.diag(sigma))}")
         
         # Build QUBO matrix
-        qubo_matrix = self.build_qubo_matrix(
-            mu, sigma, self.risk_aversion, self.penalty_strength, self.B
-        )
+        qubo_matrix = self.build_qubo_matrix(mu, sigma, self.risk_aversion, self.penalty_strength, self.B)
         
         # Create optimization program
         program = self.build_quadratic_program(qubo_matrix)
@@ -282,25 +270,19 @@ def get_user_inputs():
     
     # Get budget
     while True:
-        try:
-            budget = int(input("How many stocks do you want to select (1-7): "))
-            if 1 <= budget <= 7:
-                break
-            else:
-                print("Please enter a number between 1 and 7")
-        except ValueError:
-            print("Please enter a valid integer")
-    
+        budget = int(input("How many stocks do you want to select (1-7): "))
+        if 1 <= budget <= 7:
+            break
+        else:
+            print("Please enter a number between 1 and 7")
+
     # Get number of days
     while True:
-        try:
-            days = int(input("How many trading days of historical data (e.g., 30): "))
-            if days > 0:
-                break
-            else:
-                print("Please enter a positive number")
-        except ValueError:
-            print("Please enter a valid integer")
+        days = int(input("How many trading days of historical data (e.g., 30): "))
+        if days > 0:
+            break
+        else:
+            print("Please enter a positive number")
     
     # Get interval
     interval = "1d"  # Default to daily
