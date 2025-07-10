@@ -45,7 +45,7 @@ def print_result(result):
     value = result.fval
     print("Optimal: selection {}, value {:.4f}".format(selection, value))
 
-    eigenstate = result.min_eigen_solver_result.eigenstate
+    eigenstate = result.min_eigen_solver_result.eigenstat
     probabilities = (
         eigenstate.binary_probabilities()
         if isinstance(eigenstate, QuasiDistribution)
