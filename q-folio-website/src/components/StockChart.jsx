@@ -12,13 +12,13 @@ import {
 
 const StockChart = ({ stockData, loading, error, scrollToSection }) => {
   const stockColors = {
-    AAPL: '#1e90ff',
-    MSFT: '#00bfff', 
-    GOOGL: '#4169e1',
-    AMZN: '#6495ed',
-    NVDA: '#87ceeb',
-    TSLA: '#b0c4de',
-    META: '#add8e6'
+    AAPL: '#6c7082ff',
+    MSFT: '#0000ffff', 
+    GOOGL: '#b96f1bff',
+    AMZN: '#cea837ff',
+    NVDA: '#288b25ff',
+    TSLA: '#ff0000ff',
+    META: '#2363c2ff'
   };
 
   const stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'TSLA', 'META'];
@@ -161,6 +161,7 @@ const StockChart = ({ stockData, loading, error, scrollToSection }) => {
               <LineChart
                 data={processedData}
                 margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                connectNulls={true}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
                 <XAxis
