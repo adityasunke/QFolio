@@ -11,7 +11,7 @@ import schedule
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 
-class Pipeline():
+class DataExtraction():
     def __init__(self):
         self.tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'TSLA', 'META']
         self.API = os.getenv('API_KEY')
