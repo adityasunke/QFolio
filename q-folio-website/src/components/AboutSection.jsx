@@ -6,12 +6,18 @@ const AboutSection = ({ scrollToSection }) => (
       <h2 className="text-4xl font-bold text-center mb-12 text-blue-400">About The Project</h2>
       <div className="max-w-4xl mx-auto">
         <p className="text-lg text-gray-300 leading-relaxed text-center mb-12">
-          This project explores the intersection of quantum computing principles and modern portfolio theory. 
-          By leveraging quantum-inspired algorithms, we aim to solve the complex optimization problem of 
-          portfolio allocation across the Magnificent 7 stocks. The system analyzes historical price data, 
-          market correlations, and risk factors to generate optimal portfolio weights that maximize returns 
-          while minimizing risk. Our approach combines traditional financial models with cutting-edge 
-          computational techniques to provide superior portfolio performance in volatile market conditions.
+          Q-Folio is an innovative quantum finance project that explores the intersection of quantum 
+          computing and portfolio optimization. Leveraging the power of the Quantum Approximate Optimization 
+          Algorithm (QAOA), Q-Folio tackles the complex problem of optimizing investment allocations among 
+          the Magnificent 7 stocks—a group of leading technology companies dominating the market.
+          At the heart of Q-Folio lies the Markowitz Portfolio Theory, which provides a mathematical 
+          framework to balance risk and return in investment portfolios. By translating this classical 
+          financial model into a quantum optimization problem, Q-Folio aims to discover portfolio 
+          allocations that maximize expected returns while minimizing risk more efficiently than 
+          traditional methods. Q-Folio demonstrates how quantum computing can transform financial 
+          decision-making, offering new computational approaches for solving problems that are otherwise 
+          challenging for classical computers. This project serves as a proof-of-concept for the future of 
+          quantum-enhanced financial analytics and portfolio management.
         </p>
         <div className="text-center">
           <button 

@@ -6,7 +6,7 @@ import StockChart from './components/StockChart';
 import ImplementationSection from './components/ImplementationSection';
 import AboutMeSection from './components/AboutMeSection';
 import Footer from './components/Footer';
-import DynamicBackground from './components/DynamicBackground';
+import QuantumFinanceBackground from './components/DynamicBackground';
 import { scrollToSection } from './utils/scrollUtils';
 import { useStockData } from './hooks/useStockData'; // Fixed import path
 
@@ -37,7 +37,7 @@ const QFolioApp = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <DynamicBackground mousePosition={mousePosition} time={time} />
+      <QuantumFinanceBackground mousePosition={mousePosition} time={time} />
       <Navigation scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
       <AboutSection scrollToSection={scrollToSection} />

@@ -6,7 +6,7 @@ const HeroSection = ({ scrollToSection }) => (
       <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
         Q-Folio
       </h1>
-      <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+      <p className="text-xl md:text-2xl font-bold text-gray-300 mb-12 max-w-4xl mx-auto">
         The Quantum Edge for Portfolio Optimization
       </p>
       <div className="flex justify-center">

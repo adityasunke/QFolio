@@ -9,7 +9,7 @@ const AboutMeSection = () => (
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
           <img
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            src="https://media.licdn.com/dms/image/v2/D5603AQEciFzeVJNPNA/profile-displayphoto-shrink_400_400/B56ZTPrr9NHQAg-/0/1738651124201?e=1758153600&v=beta&t=O9z5qhoQq-1wA_fUTJaxv5muwPQJ_gxtEHgZdjleDYo"
             alt="Profile"
             className="w-32 h-32 rounded-full mx-auto border-4 border-blue-400 shadow-lg shadow-blue-500/25"
           />
