@@ -17,17 +17,19 @@ const AboutMeSection = () => (
         
         <div className="mb-8">
           <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            I'm a passionate quantitative analyst and software engineer specializing in financial technology 
-            and quantum computing applications. With a background in computer science and mathematics, I focus 
-            on developing innovative solutions that bridge the gap between theoretical algorithms and practical 
-            financial applications. My work explores the potential of quantum-inspired optimization techniques 
-            to solve complex portfolio management challenges.
+            I am Aditya Sunke! I am a Computer Science major at Virginia Tech. I am also doing a minor in 
+            Quantum Information Science and Engineering. I am deeply fascinated by the ways in which 
+            technology can address some of the world's most complex challenges, and quantum computing, 
+            in particular, captivates me for its potential to revolutionize the very foundations of 
+            computation. I find immense satisfaction in delving into the theoretical principles that 
+            underpin quantum technologies, while also exploring practical, real-world applications capable 
+            of delivering transformative impact across industries.
           </p>
         </div>
         
         <div className="flex justify-center gap-6">
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://linkedin.com/in/aditya-sunke"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-blue-600 hover:bg-blue-700 rounded-full transition-all transform hover:scale-110 shadow-lg shadow-blue-500/25"
@@ -35,7 +37,7 @@ const AboutMeSection = () => (
             <Linkedin className="w-6 h-6" />
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/adityasunke"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-gray-800 hover:bg-gray-700 rounded-full transition-all transform hover:scale-110 shadow-lg border border-gray-600 hover:border-blue-400"
@@ -43,7 +45,7 @@ const AboutMeSection = () => (
             <Github className="w-6 h-6" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:adityasunke2004@vt.edu"
             className="p-3 bg-purple-600 hover:bg-purple-700 rounded-full transition-all transform hover:scale-110 shadow-lg shadow-purple-500/25"
           >
             <Mail className="w-6 h-6" />
