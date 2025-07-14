@@ -4,7 +4,6 @@ import requests
 import pandas as pd
 import os
 from datetime import datetime
-from dotenv import load_dotenv
 import warnings
 import schedule
 
